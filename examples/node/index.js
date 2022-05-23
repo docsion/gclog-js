@@ -1,3 +1,5 @@
-const { hello } = require('../../index.js');
+const { GcLog } = require('../../index.js');
 
-hello()
+const gc = GcLog();
+const testCurl = `curl -s 'https://macchiato.lozi.space/v1.2/eateries/username:loship4'`;
+gc.log(testCurl);

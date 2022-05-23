@@ -5,8 +5,11 @@
 <body>
   <script src='../../index.js'></script>
   <script>
-    const { hello } = gclog;
-    hello();
+    const { GcLog } = gclog;
+
+    const gc = GcLog();
+    const testCurl = `curl -s 'https://macchiato.lozi.space/v1.2/eateries/username:loship4'`;
+    gc.log(testCurl);
   </script>
 </body>
 </html>
