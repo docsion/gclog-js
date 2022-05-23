@@ -1,0 +1,18 @@
+# Ignore everything except below
+*
+
+# Config files
+!.*
+!*.md
+!.husky/*
+!commitlint.config.js
+!webpack.config.js
+
+# Node package manager
+!package.json
+!yarn.lock
+
+# Main package content
+!src/
+!dist/
+
