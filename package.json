@@ -12,6 +12,9 @@
     "access": "public"
   },
   "scripts": {
+    "build": "webpack",
+    "build:browser": "yarn build && open-cli examples/browser/index.html",
+    "build:node": "yarn build && node examples/node",
     "prepare": "husky install"
   },
   "devDependencies": {
@@ -20,6 +23,7 @@
     "@babel/preset-env": "^7.18.0",
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
+    "babel-loader": "^8.2.5",
     "env-cmd": "^10.1.0",
     "eslint": "^8.16.0",
     "eslint-config-standard": "^17.0.0",
@@ -28,6 +32,7 @@
     "eslint-plugin-promise": "^6.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^12.4.1",
+    "open-cli": "^7.0.1",
     "webpack": "^5.72.1",
     "webpack-cli": "^4.9.2"
   },

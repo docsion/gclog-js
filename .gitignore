@@ -1,10 +1,11 @@
 # Ignore everything except below
-*
+/*
 
 # Config files
 !.*
+*.DS_Store
 !*.md
-!.husky/*
+!.husky/
 !commitlint.config.js
 !webpack.config.js
 
@@ -14,5 +15,7 @@
 
 # Main package content
 !src/
-!dist/
+!index.js
 
+# Output + example
+!examples/

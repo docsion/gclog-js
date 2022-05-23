@@ -9,8 +9,8 @@
   ],
   "ignorePatterns": [
     "node_modules/",
-    "dist*/",
-    "examples/"
+    "examples/",
+    "/index.js"
   ],
   "parser": "@babel/eslint-parser",
   "parserOptions": {
