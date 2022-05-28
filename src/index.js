@@ -1,20 +1,12 @@
 function ConsoleLogWriter () {
-  function write (content) {
+  this.write = (content) => {
     console.info(content);
-  }
-
-  return {
-    write,
   };
 }
 
 function StringLogParser () {
-  function parse (from) {
+  this.parse = (from) => {
     return from;
-  }
-
-  return {
-    parse,
   };
 }
 
@@ -23,19 +15,17 @@ function StringLogParser () {
  * use({ writer }) to log(any) powered by use({ parser })
  ***/
 export function GcLog () {
-  let writer, parser;
+  this.init = () => {
+    this.writer = new ConsoleLogWriter();
+    this.parser = new StringLogParser();
+  };
 
-  function init () {
-    writer = ConsoleLogWriter();
-    parser = StringLogParser();
-  }
-
-  function use ({ writer: _writer, parser: _parser }) {
+  this.use = ({ writer: _writer, parser: _parser }) => {
     if (_writer) {
       if (['write'].some((func) => !_writer[func])) {
         console.warn('Log writer is invalid, fallback to ConsoleLogWriter.');
       } else {
-        writer = _writer;
+        this.writer = _writer;
       }
     }
 
@@ -43,23 +33,22 @@ export function GcLog () {
       if (['parse'].some((func) => !_parser[func])) {
         console.warn('Log parser is invalid, fallback to StringLogParser.');
       } else {
-        parser = _parser;
+        this.parser = _parser;
       }
     }
-  }
+  };
 
-  function log (any) {
-    let content = parser.parse(any);
+  this.log = (any) => {
+    let content = this.parser.parse(any);
     if (typeof content !== 'string') content = '';
-    logContent(content);
-  }
+    logContent.call(this, content);
+  };
 
   function logContent (content) {
-    const base64Content = base64(content);
-    const encodedContent = encodeURIComponent(base64Content);
+    const encodedContent = base64.call(this, content);
     const gcLink = `https://getcurl.app/#body=${encodedContent}`;
-    writer.write(gcLink);
-  }
+    this.writer.write(gcLink);
+  };
 
   function base64 (content) {
     return btoa(
@@ -69,12 +58,7 @@ export function GcLog () {
     );
   }
 
-  init();
-
-  return {
-    use,
-    log,
-  };
+  this.init();
 }
 
 export default GcLog;

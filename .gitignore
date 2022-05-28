@@ -17,5 +17,8 @@
 !src/
 !index.js
 
+# Test suite
+!__tests__/
+
 # Output + example
 !examples/
