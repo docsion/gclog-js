@@ -5,6 +5,6 @@ module.exports = {
     '@commitlint/config-conventional',
   ],
   ignores: [
-    commitMsg => automaticCommitPattern.test(commitMsg),
+    (commitMsg) => automaticCommitPattern.test(commitMsg),
   ],
 };
