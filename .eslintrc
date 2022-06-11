@@ -1,0 +1,51 @@
+{
+  "env": {
+    "es2020": true,
+    "browser": true,
+    "node": true
+  },
+  "extends": [
+    "standard"
+  ],
+  "ignorePatterns": [
+    "node_modules/",
+    "examples/",
+    "/index.js"
+  ],
+  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "root": true,
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["app"],
+        "extensions": [".js", ".jsx"]
+      }
+    },
+    "import/ignore": "node_modules",
+    "react": {
+      "version": "detect"
+    }
+  },
+  "overrides": [
+    {
+      "files": ["__tests__/**"],
+      "plugins": ["jest"],
+      "extends": ["plugin:jest/recommended"]
+    }
+  ],
+  "rules": {
+    "comma-dangle": ["error", "always-multiline"],
+    "import/no-unresolved": ["error", { "commonjs": true }],
+    "linebreak-style": ["error", "unix"],
+    "no-console": ["error", { "allow": ["info", "warn", "error"] }],
+    "no-fallthrough": ["error", { "commentPattern": "break[\\s\\w]*omitted" }],
+    "no-unused-vars": ["error", { "varsIgnorePattern": "^_", "argsIgnorePattern": "^_", "ignoreRestSiblings": true }],
+    "object-property-newline": "off",
+    "semi": ["error", "always"]
+  }
+}

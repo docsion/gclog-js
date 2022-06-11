@@ -1,0 +1,24 @@
+# Ignore everything except below
+/*
+
+# Config files
+!.*
+*.DS_Store
+!*.md
+!.husky/
+!commitlint.config.js
+!webpack.config.js
+
+# Node package manager
+!package.json
+!yarn.lock
+
+# Main package content
+!src/
+!index.js
+
+# Test suite
+!__tests__/
+
+# Output + example
+!examples/

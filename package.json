@@ -1,0 +1,48 @@
+{
+  "name": "gclog",
+  "version": "0.0.0",
+  "main": "index.js",
+  "files": [],
+  "homepage": "https://github.com/docsion/gclog-js#readme",
+  "repository": "git@github.com:docsion/gclog-js.git",
+  "bugs": "https://github.com/docsion/gclog-js/issues",
+  "author": "Rye Nguyen <ryenguyen7411@gmail.com>",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "webpack",
+    "build:browser": "yarn build && open-cli examples/browser/index.html",
+    "build:node": "yarn build && node examples/node",
+    "test": "jest",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/preset-env": "^7.18.0",
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
+    "babel-jest": "^28.1.0",
+    "babel-loader": "^8.2.5",
+    "env-cmd": "^10.1.0",
+    "eslint": "^8.16.0",
+    "eslint-config-standard": "^17.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^26.3.0",
+    "eslint-plugin-n": "^15.2.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "husky": "^8.0.1",
+    "jest": "^28.1.0",
+    "lint-staged": "^12.4.1",
+    "open-cli": "^7.0.1",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "lint-staged": {
+    "src/*.{js,jsx}": [
+      "eslint --quiet"
+    ]
+  }
+}
